@@ -1,0 +1,348 @@
+:root {
+    --bg-color: #F5F5F7;
+    --pry-text: #1E1E24;
+    --gutter: 10px;
+    --logo-size: 5rem;
+    --h1-size: 3rem;
+    --hero-text-width: 50%;
+
+    /* this is for the first grid before intoduction picture */
+    --row-h: 15rem;
+    --grid-gap: 9px;
+
+    /* FOR MY FACE PART,LOL */
+    --face-size: 70%;
+    --words-pad: 90px;
+
+    /* BELOW ME ;WORK */
+    --work-w: calc((100% - 2 * var(--grid-gap)) / 3); /*THE SPACE OF GAP LEFT DIVIDE BY PICTURE  */ 
+    --banner-w: 70%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color:wheat;
+    font-family: 'Inter', sans-serif;
+    color: var(--pry-text);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--gutter);
+}
+
+header .logo {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--logo-size);
+    height: var(--logo-size);
+    background-color: black;
+}
+
+header .logo .circle {
+    width: 80%;
+    height: 80%;
+
+    border-radius: 50%;
+    background-color: white;
+}
+
+.consult {
+    padding: 0.7rem 1.4rem;
+    font: inherit;
+    font-weight: 900;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: 15px;
+    color: whitesmoke;
+    background-color: black;
+    border: 1px solid black;
+}
+
+nav {
+    text-align: center;
+    padding: 0 var(--gutter);
+}
+
+nav h1 {
+    font-size: var(--h1-size);
+}
+
+nav p {
+    max-width: var(--hero-text-width);
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+
+
+
+/* display of language grid */
+.gridc {
+    width: 90%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 36fr 17fr 17fr 30fr;
+    grid-template-areas:
+        "box1 box2 box3 box4"
+        "box1 box5 box5 box6";
+    grid-auto-rows: var(--row-h);
+    gap: var(--grid-gap);
+}
+
+.gridc>div {
+    border-radius: 17px;
+    overflow: hidden;
+}
+
+.box1 {
+    grid-area: box1;
+}
+
+.box2 {
+    grid-area: box2;
+}
+
+.box3 {
+    grid-area: box3;
+}
+
+.box4 {
+    grid-area: box4;
+}
+
+.box5 {
+    grid-area: box5;
+}
+
+.box6 {
+    grid-area: box6;
+}
+
+.gridc img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --row-h: 10rem;
+        --grid-gap: 1rem;
+    }
+
+    .gridc {
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-areas:
+            "box1 box2 box3"
+            "box1 box5 box5"
+            "box4 box6 box6";
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --row-h: 9rem;
+    }
+
+    .gridc {
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-areas:
+            "box1 box1"
+            "box1 box1"
+            "box2 box3"
+            "box5 box5"
+            "box4 box4"
+            "box6 box6";
+    }
+}
+
+
+/* the section for my picture */
+.faceCon {
+    display: flex;
+    margin: 1rem auto;
+}
+
+.face {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.face img {
+    width: var(--face-size);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.words {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--words-pad);
+}
+
+.consult-btn {
+    padding: 0.7rem 1.4rem;
+    font: inherit;
+    font-weight: 900;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: 15px;
+    color: black;
+    background-color: #eb7765;
+    border: 1px solid rgb(215, 15, 15);
+}
+
+.uni {
+    text-align: center;
+}
+
+/* MY WORKS */
+.works {
+    display: flex;
+    gap: var(--grid-gap);
+    width: 95%;
+    margin: 0 auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.works .box {
+
+    flex: 0 0 var(--work-w);
+    scroll-snap-align: center;
+}
+
+.works .box img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+
+/* THE FOOTER SECTION */
+.call-banner {
+    background-color: #0b0b0b;
+    width: 70%;
+    margin: 80px auto;
+    border-radius: 10px;
+    padding: 40px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.call-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.call-text h2 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.call-text p {
+    color: #cccccc;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.call-action {
+    flex-shrink: 0;
+}
+
+.btn-primary {
+    background-color: #eb7765;
+    color: #ffffff;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #d66453;
+}
+
+
+
+
+
+
+
+
+/* DEAR FELLOW DEVELOPER, EVERY OTHER MEDIA QUERY FOR SOME SECTION GO IN HERE, WELL BASICALLY I AM TIRED OF REPEATING CODE MAN, BUT YOU SHA GET, THE VARIABLES ARE DECLARED AT THE TOP*/
+
+/* EVERY OTHER ELEMENT WITH THAT VARIABLE AUTOMATICALLY ADJUSTS BASED ON THE SCREEN SIZE */
+
+@media (max-width: 768px) {
+    :root {
+        --gutter: 2rem;
+        --logo-size: 3.75rem;
+        --h1-size: 2.5rem;
+        --hero-text-width: 80%;
+
+        --words-pad: 1.5rem;
+
+        /* BELOW ME */
+        --work-w: 70%;
+        --banner-w: 90%;
+    }
+
+    .call-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+    gap: 1.5rem;
+}
+}
+
+@media (max-width: 480px) {
+    :root {
+        --gutter: 1rem;
+        --logo-size: 2.5rem;
+        --h1-size: 2rem;
+        --hero-text-width: 100%;
+
+        --face-size: 80%;
+        --words-pad: 1.5rem var(--gutter);
+
+        --work-w: 78%;
+    }
+
+    .faceCon {
+        flex-direction: column;
+    }
+
+    .words {
+
+        text-align: center;
+    }
+}
